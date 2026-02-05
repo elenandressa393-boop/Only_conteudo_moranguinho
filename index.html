@@ -1,0 +1,242 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Purple Night Desire</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: radial-gradient(circle at top, #3b0a57, #0b0214);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+/* CONTAINER */
+.container {
+    width: 100%;
+    max-width: 420px;
+    padding: 30px 20px 40px;
+    text-align: center;
+}
+
+/* FOTO */
+.profile-pic {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 4px solid #a855f7;
+    object-fit: cover;
+    margin: 10px auto 22px;
+    box-shadow: 0 0 25px rgba(168,85,247,0.6);
+    display: block;
+}
+
+/* ONLINE STATUS */
+.status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: 13px;
+    color: #a7f3d0;
+    margin-bottom: 10px;
+}
+
+.status-dot {
+    width: 9px;
+    height: 9px;
+    background: #22c55e;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(34,197,94,0.9);
+}
+
+/* TEXTOS */
+h1 { font-size: 26px; margin: 8px 0 5px; }
+
+.info {
+    font-size: 14px;
+    color: #d8b4fe;
+    margin-bottom: 22px;
+}
+
+.bio {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #f5d0fe;
+    margin-bottom: 32px;
+}
+
+/* PLANOS */
+.plans {
+    background: rgba(255,255,255,0.07);
+    border-radius: 24px;
+    padding: 26px 20px;
+    margin-bottom: 32px;
+    box-shadow: 0 0 22px rgba(168,85,247,0.45);
+}
+
+.plans h2 {
+    font-size: 22px;
+    margin-bottom: 18px;
+    color: #e9d5ff;
+}
+
+.plan {
+    font-size: 18px;
+    margin: 14px 0;
+}
+
+/* BOTÕES */
+.btn {
+    width: 100%;
+    padding: 15px;
+    margin: 14px 0;
+    background: linear-gradient(135deg, #9333ea, #c084fc);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    display: block;
+}
+
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(10,0,20,0.92);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+/* MODAL CONTENT */
+.modal-content {
+    background: #14001f;
+    padding: 20px;
+    border-radius: 22px;
+    width: 380px;
+    max-width: 92%;
+    max-height: 80vh;
+    overflow-y: auto;
+    text-align: center;
+}
+
+/* WRAPPER DO VÍDEO */
+.video-box {
+    width: 100%;
+    max-width: 260px;
+    height: 160px;
+    margin: 0 auto 14px;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #000;
+}
+
+/* VÍDEO */
+.video-box video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+}
+
+/* FECHAR */
+.close {
+    margin-top: 12px;
+    padding: 12px;
+    background: #9333ea;
+    border-radius: 25px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    position: sticky;
+    bottom: 0;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <img src="foto.jpg" class="profile-pic">
+
+    <h1>Moranguinho</h1>
+
+    <div class="status">
+        <div class="status-dot"></div>
+        Online now
+    </div>
+
+    <div class="info">18 years old • Brazilian 🇧🇷</div>
+
+    <div class="bio">
+        Hi… I’m a Brazilian girl 🇧🇷✨<br><br>
+        I’m naughty, seductive and I love being watched 😈🔥<br><br>
+        I create exclusive content for those who crave desire,
+        temptation and late-night fantasies.<br><br>
+        <strong>Come see me 💜</strong>
+    </div>
+
+    <div class="plans">
+        <h2>Choose Your Access</h2>
+        <div class="plan">🔥 Basic — <strong>$19.99</strong></div>
+        <div class="plan">💜 VIP — <strong>$39.99</strong></div>
+    </div>
+
+    <a href="https://wa.me/5511912856217" class="btn">Chat on WhatsApp</a>
+    <a href="#" class="btn" onclick="openPreview()">View Preview</a>
+
+</div>
+
+<!-- MODAL -->
+<div class="modal" id="previewModal">
+    <div class="modal-content">
+
+        <div class="video-box">
+            <video id="video1" controls playsinline webkit-playsinline>
+                <source src="video1.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="video-box">
+            <video id="video2" controls playsinline webkit-playsinline>
+                <source src="video2.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="close" onclick="closePreview()">Close Preview</div>
+    </div>
+</div>
+
+<script>
+function openPreview() {
+    document.getElementById('previewModal').style.display = 'flex';
+    ['video1','video2'].forEach(id => {
+        const v = document.getElementById(id);
+        v.style.display = 'block';
+        v.pause();
+        v.currentTime = 0;
+    });
+}
+
+function closePreview() {
+    ['video1','video2'].forEach(id => {
+        const v = document.getElementById(id);
+        v.pause();
+        v.style.display = 'none';
+    });
+    document.getElementById('previewModal').style.display = 'none';
+}
+</script>
+
+</body>
+</ht
